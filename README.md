@@ -26,14 +26,13 @@ This project deploys a serverless data pipeline using AWS CDK.
 
 Once deployed, you can use `curl` or Postman to test the API.
 
-### Using `curl`
-
-Here’s an example `curl` command to test the API:
+### Using `CLI`
 
 ```bash
-curl -X POST https://<api-id>.execute-api.<region>.amazonaws.com/prod/ \
-     -d @testfile.txt \
-     --header "x-api-key: <api-key>"
+aws lambda invoke \
+  --function-name TextFileProcessorFunction \
+  --payload file://test_payload.json \
+  response.json
 ```
 
 ### Create a New Postman Request
